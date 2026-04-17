@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mural de Avisos{% endblock %}</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
+        nav { background: #333; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: #fff; text-decoration: none; margin-left: 15px; }
+        .container { width: 80%; margin: 2rem auto; overflow: hidden; }
+        .card { background: #fff; padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; border-left: 5px solid #007bff; }
+        .btn { background: #007bff; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 5px; border: none; cursor: pointer; }
+        .tag { font-size: 0.8rem; background: #e2e2e2; padding: 2px 8px; border-radius: 10px; }
+        form div { margin-bottom: 1rem; }
+        input, textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <strong>Mural de Avisos Parnaíba</strong>
+        <div>
+            <a href="{% url 'home' %}">Início</a>
+            <a href="{% url 'criar_aviso' %}" class="btn">+ Novo Aviso</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

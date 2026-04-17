@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Criar Novo Aviso</h1>
+    
+    <div style="background: white; padding: 2rem; border-radius: 8px;">
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <button type="submit" class="btn">Salvar Aviso</button>
+            <a href="{% url 'home' %}" style="margin-left: 10px; color: #666;">Cancelar</a>
+        </form>
+    </div>
+{% endblock %}  
