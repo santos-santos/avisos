@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Avisos Recentes</h1>
+    
+    <div style="margin-bottom: 2rem;">
+        <strong>Filtrar:</strong>
+        <a href="{% ulr 'home' %}">Todos</a> | 
+        
+        {% for cat in categoria %}
+        <a href="?categoria={{ cat.id }}">{{ cat.nome}}</a> | 
+        {% endfor %}
+    </div>
+
+    {% for aviso in avisos %}
+        <div class="card">
+            <span class="tag">{{ aviso.categoria.nome }}</span>
+            <h2>{{ aviso.titulo }}</h2>
+            
+            <p><small>Publicado em: {{ aviso.data_criacao|date:"d/m/Y" }}</small></p>
+            <a href="{% url 'detalhe_aviso' aviso.id %}">Ver detalhes →</a>
+        </div>
+    {% empty %}
+        <p>Nenhum aviso encontrado no momento.</p>
+    {% endfor %}
+{% endblock %}

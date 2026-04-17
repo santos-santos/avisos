@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ aviso.titulo }} - Detalhes{% endblock %}
+
+{% block content %}
+    <a href="{% url 'home' %}">← Voltar para a lista</a>
+    
+    <article style="background: white; padding: 2rem; margin-top: 1rem; border-radius: 8px;">
+        <span class="tag">{{ aviso.get_categoria_display }}</span>
+        <h1>{{ aviso.titulo }}</h1>
+        <p style="color: #666;">Postado em {{ aviso.data_criacao }}</p>
+        <hr>
+        <div style="font-size: 1.2rem; margin-top: 1rem;">
+            {{ aviso.conteudo|linebreaks }}
+        </div>
+    </article>
+{% endblock %}
